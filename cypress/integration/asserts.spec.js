@@ -37,6 +37,7 @@ it('Object Equality', () => {
     expect(obj).to.have.property('b')
     expect(obj).to.have.property('b', 2)
     expect(obj).to.not.be.empty
+    expect({}).to.be.empty
 });
 
 it('Arrays', () => {
@@ -65,11 +66,11 @@ it('String', () => {
     expect(str).to.have.length(15)
     expect(str).to.contains('de')
     expect(str).to.match(/de/)
-    expect(str).to.match(/^String/)
+    expect(str).to.match(/^String/) 
     expect(str).to.match(/Teste$/)
-    expect(str).to.match(/.{15}/)
-    expect(str).to.match(/\w+/)
-    expect(str).to.match(/\D+/)
+    expect(str).to.match(/.{15}/) //quantidade de caracteres
+    expect(str).to.match(/\w+/) //contém letras + uma ou mais
+    expect(str).to.match(/\D+/) //não contém numeros + um ou mais
 });
 
 it('Numbers', () => {

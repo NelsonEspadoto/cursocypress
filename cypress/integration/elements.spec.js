@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-const { expect } = require("chai")
-
 describe('Work with basic elements', () => {
     before(() => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
@@ -89,7 +87,7 @@ describe('Work with basic elements', () => {
         })
     });
 
-    it.only('Combo multiplo', () => {
+    it('Combo multiplo', () => {
         cy.get('[data-testid=dataEsportes]')
             .select(['natacao', 'Corrida'])
 

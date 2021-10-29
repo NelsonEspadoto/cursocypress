@@ -49,7 +49,7 @@ describe('Helpers...', () => {
         cy.title().its('length').should('be.eq', 20)
     })
 
-    it.only('Invoke...', () => {
+    it('Invoke...', () => {
         const getValue = () => 1;
         const sum = (a, b) => a + b
         cy.wrap({ func: getValue }).invoke('func').should('be.eq', 1)

@@ -25,10 +25,42 @@ describe('Waiting...', () => {
             .type('funciona')
     });
 
-    it.only('Uso do find', () => {
+    it('Uso do find', () => {
         cy.get('#buttonList').click()
         cy.get('#lista li')
             .find('span')
             .should('contain', 'Item 1')
+        cy.get('#lista li span')
+            .should('contain', 'Item 2')
+    });
+
+    it('Uso do Timeout', () => {
+        cy.get('#buttonListDOM').click()
+        //cy.wait(3000)
+        cy.get('#lista li span', { timeout: 6000 })
+            .should('contain', 'Item 2')
+
+        cy.get('#buttonListDOM').click()
+        cy.get('#lista li span')
+            .should('have.length', 1)
+        cy.get('#lista li span')
+            .should('have.length', 2)
+    });
+
+    it('Click retry', () => {
+        cy.get('#buttonCount')
+            .click()
+            .click()
+            .should('have.value', '111')
+    });
+
+    it.only('Should vs Then', () => {
+        cy.get('#buttonListDOM').should($elem => {
+            expect($elem).to.have.length(1)
+        }).and('have.id', 'buttonListDOM')
+        cy.get('#buttonListDOM').then($elem => {
+            expect($elem).to.have.length(1)
+            return 2
+        }).and('be.eq', 2)
     });
 })
