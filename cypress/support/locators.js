@@ -16,6 +16,7 @@ const locators = {
         DESCRICAO: '[data-test=descricao]',
         VALOR: '[data-test=valor]',
         INTERESSADO: '[data-test=envolvido]',
+        CONTA: '[data-test=conta]',
         STATUS: '[data-test=status]',
         BTN_SALVAR: '.btn-primary'
     },
